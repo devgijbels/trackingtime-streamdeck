@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://sdpi-components.dev/releases/v3/sdpi-components.js"></script>
+</head>
+<body>
+  <sdpi-item label="Filter">
+    <sdpi-textfield id="filter" placeholder="Type to search tasks..."></sdpi-textfield>
+  </sdpi-item>
+
+  <sdpi-item label="Task">
+    <sdpi-select
+      setting="taskId"
+      id="task-select"
+      datasource="getTasks"
+      loading="Loading tasks..."
+      hot-reload
+      value-type="number"
+      label-setting="taskLabel">
+    </sdpi-select>
+  </sdpi-item>
+
+  <script>
+    const filterInput = document.getElementById("filter");
+    let debounceTimer;
+
+    filterInput.addEventListener("input", () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        SDPIComponents.streamDeckClient.send("sendToPlugin", {
+          event: "getTasks",
+          search: filterInput.value,
+        });
+      }, 300);
+    });
+  </script>
+</body>
+</html>

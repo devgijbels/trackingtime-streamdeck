@@ -1,0 +1,57 @@
+{
+	"Name": "EZ TrackingTime",
+	"Version": "0.1.0.0",
+	"Author": "DevGijbels",
+	"Actions": [
+		{
+			"Name": "Toggle Tracking",
+			"UUID": "com.devgijbels.ez-trackingtime.toggle-tracking",
+			"Icon": "imgs/actions/toggle/running",
+			"Tooltip": "Toggles tracking on and off.",
+			"PropertyInspectorPath": "ui/toggle-tracking.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{ "Image": "imgs/actions/toggle/stopped", "TitleAlignment": "bottom" },
+				{ "Image": "imgs/actions/toggle/running", "TitleAlignment": "bottom" }
+			]
+		},
+		{
+			"Name": "Start Task",
+			"UUID": "com.devgijbels.ez-trackingtime.start-task",
+			"Icon": "imgs/actions/toggle/icon",
+			"Tooltip": "Starts tracking a specific task.",
+			"PropertyInspectorPath": "ui/start-task.html",
+			"Controllers": ["Keypad"],
+			"States": [
+				{ "Image": "imgs/actions/toggle/stopped", "TitleAlignment": "bottom" },
+				{ "Image": "imgs/actions/toggle/running", "TitleAlignment": "bottom" }
+			]
+		}
+	],
+	"Category": "EZ TrackingTime",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "TrackingTime integration with Stream Deck",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 3,
+	"Software": {
+		"MinimumVersion": "7.1"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "12"
+		},
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "24",
+		"Debug": "enabled"
+	},
+	"UUID": "com.devgijbels.ez-trackingtime"
+}
